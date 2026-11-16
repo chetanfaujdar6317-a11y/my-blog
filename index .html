@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog | Stories & Ideas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">MyBlog</h2>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#articles">Articles</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <h1>Welcome to My Blog</h1>
+            <p>Ideas, stories and knowledge worth sharing.</p>
+            <a class="hero-button" href="#articles">Explore Articles</a>
+        </section>
+
+        <section class="articles" id="articles">
+            <h2>Latest Articles</h2>
+            <p class="section-description">
+                Explore my latest thoughts and stories.
+            </p>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search articles..."
+                aria-label="Search articles"
+            >
+
+            <div class="article-grid" id="articleGrid">
+
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <img src="nature.jpg" alt="Beautiful nature landscape">
+                    <div class="article-content">
+                        <span class="category">Nature</span>
+                        <h3>
+                            <a href="article1.html">Beauty of Nature</a>
+                        </h3>
+                        <p>Discover the beauty of nature and why we should protect our planet.</p>
+                        <p class="author">By Admin | November 2026</p>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <img src="technology.jpg" alt="Technology and programming">
+                    <div class="article-content">
+                        <span class="category">Technology</span>
+                        <h3>
+                            <a href="article2.html">My Technology Journey</a>
+                        </h3>
+                        <p>My journey into programming, computers and website development.</p>
+                        <p class="author">By Admin | November 2026</p>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <img src="learning.jpg" alt="Learning and books">
+                    <div class="article-content">
+                        <span class="category">Learning</span>
+                        <h3>
+                            <a href="article3.html">Why Learning Matters</a>
+                        </h3>
+                        <p>Small steps every day can help us learn new skills and grow.</p>
+                        <p class="author">By Admin | November 2026</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="noResults" hidden>
+                No articles found. Try another search.
+            </p>
+        </section>
+
+        <section class="about" id="about">
+            <h2>About My Blog</h2>
+            <p>
+                This blog is a place where I share my thoughts,
+                experiences, ideas and things I learn.
+            </p>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Contact Me</h2>
+            <p>Have something to share? I'd love to hear from you.</p>
+            <a href="mailto:hello@example.com">Send Me an Email</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 MyBlog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const articles = document.querySelectorAll(".article-card");
+        const noResults = document.getElementById("noResults");
+
+        searchInput.addEventListener("input", function () {
+            const searchText = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            articles.forEach(function (article) {
+                const articleText = article.textContent.toLowerCase();
+
+                if (articleText.includes(searchText)) {
+                    article.style.display = "block";
+                    visibleCount++;
+                } else {
+                    article.style.display = "none";
+                }
+            });
+
+            noResults.hidden = visibleCount !== 0;
+        });
+    </script>
+
+</body>
+</html>
